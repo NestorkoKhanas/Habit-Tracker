@@ -9,7 +9,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<int> items = [];
+  List<int> _items = [];
+  int _count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,21 +18,15 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: lightBlueGrey,
-        onPressed: null,
-        child: ListTile(
-          onLongPress: () {
-            setState(() {
-              items.removeAt(items.length - 1);
-            });
-          },
-          onTap: () {
-            setState(() {
-              items.add(items.length + 1);
-            });
-          },
-          title: Icon(Icons.add, color: lightTextColor),
-        ),
+        onPressed: () {
+          setState(() {
+            _items.add(_count);
+            _count++;
+          });
+        },
+        child: Icon(Icons.add, color: lightTextColor),
       ),
+
       backgroundColor: deepestIndigo,
       appBar: AppBar(
         title: Text("Habit Tracker", style: TextStyle(color: lightTextColor)),
@@ -41,16 +36,24 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: SafeArea(
         child: ListView.builder(
-          itemCount: items.length,
+          itemCount: _items.length,
           itemBuilder: (context, index) => SizedBox(
             height: 70,
             child: Card(
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               color: warmPink,
-              child: ListTile(
-                title: Text(
-                  "Item ${items[index]}",
-                  style: TextStyle(color: darkTextColor),
+              child: Dismissible(
+                key: ValueKey(_items[index]),
+                onDismissed: (direction) {
+                  setState(() {
+                    _items.removeAt(index);
+                  });
+                },
+                child: ListTile(
+                  title: Text(
+                    "Item ${_items[index]}",
+                    style: TextStyle(color: darkTextColor),
+                  ),
                 ),
               ),
             ),

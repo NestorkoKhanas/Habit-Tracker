@@ -17,12 +17,20 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: lightBlueGrey,
-        onPressed: () {
-          setState(() {
-            items.add(items.length + 1);
-          });
-        },
-        child: Icon(Icons.add, color: lightTextColor),
+        onPressed: null,
+        child: ListTile(
+          onLongPress: () {
+            setState(() {
+              items.removeAt(items.length - 1);
+            });
+          },
+          onTap: () {
+            setState(() {
+              items.add(items.length + 1);
+            });
+          },
+          title: Icon(Icons.add, color: lightTextColor),
+        ),
       ),
       backgroundColor: deepestIndigo,
       appBar: AppBar(
@@ -34,14 +42,13 @@ class _MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: ListView.builder(
           itemCount: items.length,
-          itemBuilder: (context, index) => Container(
-            margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
-            height: 60,
+          itemBuilder: (context, index) => SizedBox(
+            height: 70,
             child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               color: warmPink,
-
-              child: Center(
-                child: Text(
+              child: ListTile(
+                title: Text(
                   "Item ${items[index]}",
                   style: TextStyle(color: darkTextColor),
                 ),

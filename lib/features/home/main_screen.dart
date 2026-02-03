@@ -9,6 +9,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  List<int> items = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,11 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         backgroundColor: lightBlueGrey,
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            items.add(items.length + 1);
+          });
+        },
         child: Icon(Icons.add, color: lightTextColor),
       ),
       backgroundColor: deepestIndigo,
@@ -28,6 +33,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       body: SafeArea(
         child: ListView.builder(
+          itemCount: items.length,
           itemBuilder: (context, index) => Container(
             margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
             height: 60,
@@ -36,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
 
               child: Center(
                 child: Text(
-                  "Item $index",
+                  "Item ${items[index]}",
                   style: TextStyle(color: darkTextColor),
                 ),
               ),

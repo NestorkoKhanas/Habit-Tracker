@@ -9,7 +9,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<int> _items = [];
+  final List<int> _items = [];
   int _count = 0;
   @override
   Widget build(BuildContext context) {
@@ -43,6 +43,13 @@ class _MainScreenState extends State<MainScreen> {
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
               color: warmPink,
               child: Dismissible(
+                direction: DismissDirection.endToStart,
+                background: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
                 key: ValueKey(_items[index]),
                 onDismissed: (direction) {
                   setState(() {

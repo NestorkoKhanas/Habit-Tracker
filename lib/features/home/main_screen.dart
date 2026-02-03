@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/core/theme/colors.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -6,11 +7,24 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Habit Tracker"), centerTitle: true),
+      backgroundColor: deepestIndigo,
+      appBar: AppBar(
+        title: Text("Habit Tracker", style: TextStyle(color: lightTextColor)),
+        centerTitle: true,
+        backgroundColor: deepestIndigo,
+      ),
       body: SafeArea(
         child: ListView.builder(
-          itemBuilder: (context, index) =>
-              Card(child: Center(child: Text("Item $index"))),
+          itemBuilder: (context, index) => Card(
+            color: warmPink,
+
+            child: Center(
+              child: Text(
+                "Item $index",
+                style: TextStyle(color: darkTextColor),
+              ),
+            ),
+          ),
         ),
       ),
     );

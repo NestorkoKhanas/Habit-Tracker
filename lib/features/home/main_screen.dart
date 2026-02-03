@@ -7,6 +7,10 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
       backgroundColor: deepestIndigo,
       appBar: AppBar(
         title: Text("Habit Tracker", style: TextStyle(color: lightTextColor)),

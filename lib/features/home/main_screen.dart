@@ -7,7 +7,12 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Habit Tracker"), centerTitle: true),
-      body: SafeArea(child: Center(child: Text("hello"))),
+      body: SafeArea(
+        child: ListView.builder(
+          itemBuilder: (context, index) =>
+              Card(child: Center(child: Text("Item $index"))),
+        ),
+      ),
     );
   }
 }

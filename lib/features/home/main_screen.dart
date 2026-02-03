@@ -8,8 +8,11 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        backgroundColor: lightBlueGrey,
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: lightTextColor),
       ),
       backgroundColor: deepestIndigo,
       appBar: AppBar(

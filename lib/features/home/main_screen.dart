@@ -14,18 +14,23 @@ class MainScreen extends StatelessWidget {
       backgroundColor: deepestIndigo,
       appBar: AppBar(
         title: Text("Habit Tracker", style: TextStyle(color: lightTextColor)),
+        elevation: 5,
         centerTitle: true,
         backgroundColor: deepestIndigo,
       ),
       body: SafeArea(
         child: ListView.builder(
-          itemBuilder: (context, index) => Card(
-            color: warmPink,
+          itemBuilder: (context, index) => Container(
+            margin: EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+            height: 60,
+            child: Card(
+              color: warmPink,
 
-            child: Center(
-              child: Text(
-                "Item $index",
-                style: TextStyle(color: darkTextColor),
+              child: Center(
+                child: Text(
+                  "Item $index",
+                  style: TextStyle(color: darkTextColor),
+                ),
               ),
             ),
           ),

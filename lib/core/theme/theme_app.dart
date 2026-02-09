@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/core/theme/colors_app.dart';
 
-
 class ThemeApp {
-
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
@@ -34,51 +32,42 @@ class ThemeApp {
     disabledColor: ColorsApp.disabled,
 
     textTheme: const TextTheme(
-  headlineLarge: TextStyle(
-    fontSize: 28,
-    fontWeight: FontWeight.w600,
-    color: ColorsApp.textPrimary,
-  ),
+      headlineLarge: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.w600,
+        color: ColorsApp.textPrimary,
+      ),
 
-  titleLarge: TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    color: ColorsApp.textPrimary,
-  ),
+      titleLarge: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        color: ColorsApp.textPrimary,
+      ),
 
-  titleMedium: TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w500,
-    color: ColorsApp.textPrimary,
-  ),
+      titleMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: ColorsApp.textPrimary,
+      ),
 
-  bodyLarge: TextStyle(
-    fontSize: 16,
-    color: ColorsApp.textPrimary,
-  ),
+      bodyLarge: TextStyle(fontSize: 16, color: ColorsApp.textPrimary),
 
-  bodyMedium: TextStyle(
-    fontSize: 14,
-    color: ColorsApp.textSecondary,
-  ),
+      bodyMedium: TextStyle(fontSize: 14, color: ColorsApp.textSecondary),
 
-  labelLarge: TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeight.w600,
-    color: Colors.white,
-  ),
+      labelLarge: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: Colors.white,
+      ),
 
-  labelSmall: TextStyle(
-    fontSize: 12,
-    color: ColorsApp.accent,
-  ),
-),
+      labelSmall: TextStyle(fontSize: 12, color: ColorsApp.accent),
+    ),
 
- floatingActionButtonTheme: const FloatingActionButtonThemeData(
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
       backgroundColor: ColorsApp.primary,
       foregroundColor: Colors.white,
     ),
-progressIndicatorTheme: const ProgressIndicatorThemeData(
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
       color: ColorsApp.primary,
       linearTrackColor: ColorsApp.primarySoft,
     ),
@@ -86,14 +75,7 @@ progressIndicatorTheme: const ProgressIndicatorThemeData(
       style: OutlinedButton.styleFrom(
         foregroundColor: ColorsApp.primary,
         side: const BorderSide(color: ColorsApp.primarySoft),
-      ),)
-    );
-
-
-
-
-
-
-
-
+      ),
+    ),
+  );
 }

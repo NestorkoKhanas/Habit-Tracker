@@ -14,5 +14,4 @@ class ColorsApp {
   static const Color disabled = Color(0xFFBDBDBD);
   static const Color divider = Color(0xFFE0E0E0);
   static const Color error = Color(0xFFE57373);
-
 }
